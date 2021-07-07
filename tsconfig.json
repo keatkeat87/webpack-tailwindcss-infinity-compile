@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true,
+    "strict": true,
+    "sourceMap": true,
+    // note: 解忧
+    // 目前是 flatpickr 需要到
+    // refer : https://stackoverflow.com/questions/53885107/typescript-cant-find-module-flatpickr-even-though-it-includes-typescript-types
+    "moduleResolution": "node"
+  }
+}
