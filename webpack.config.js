@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
-  watch: true,
+  watch: !isProduction,
   entry: {
     home: "./Web/Home/home-page",
   },
@@ -34,7 +34,7 @@ module.exports = {
         // website
         test: /\\Web\\Home\\home-page.scss/,
         use: [
-          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          "style-loader",
           "css-loader",
           {
             loader: "postcss-loader",
@@ -49,6 +49,24 @@ module.exports = {
                     },
                     darkMode: false,
                     theme: {
+                      aspectRatio: {
+                        1: "1",
+                        2: "2",
+                        3: "3",
+                        4: "4",
+                        5: "5",
+                        6: "6",
+                        7: "7",
+                        8: "8",
+                        9: "9",
+                        10: "10",
+                        11: "11",
+                        12: "12",
+                        13: "13",
+                        14: "14",
+                        15: "15",
+                        16: "16",
+                      },
                       extend: {
                         colors: {
                           primary: "#ff0000",
@@ -63,9 +81,11 @@ module.exports = {
                     },
                     variants: {
                       extend: {},
+                      aspectRatio: ["responsive", "hover"],
                     },
                     plugins: [require("@tailwindcss/aspect-ratio")],
                   }),
+                  // require("postcss-css-variables"),
                   require("postcss-preset-env")({ stage: 1 }),
                   require("postcss-font-magician")({
                     display: "swap",
@@ -78,7 +98,6 @@ module.exports = {
                     },
                     foundries: ["google"],
                   }),
-                  require('postcss-css-variables'),
                 ],
               },
             },

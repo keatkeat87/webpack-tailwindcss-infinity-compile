@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "webpack --node-env development",
-    "build": "webpack --config webpack.prod.js --node-env production"
+    "build": "webpack --node-env production"
   },
   "main": "index.js",
   "author": "stooges",
