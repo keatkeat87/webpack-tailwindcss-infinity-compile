@@ -32,7 +32,6 @@
     "mini-css-extract-plugin": "^2.1.0",
     "node-glob": "^1.2.0",
     "postcss": "^8.3.5",
-    "postcss-css-variables": "^0.18.0",
     "postcss-font-magician": "^3.0.0",
     "postcss-import": "^14.0.2",
     "postcss-loader": "^6.1.1",
