@@ -3,6 +3,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
+var glob = require('glob')
+const content = ['./Web/**/!(*Amp*|Index).html', '**/*.jpg'];
+console.log('dada', content.flatMap(w => glob.sync(w)));
 
 module.exports = {
   watch: true,
@@ -32,7 +35,7 @@ module.exports = {
       },
       {
         // website
-        test: /\\Web\\((?!amp-).)+\.scss$/,
+        test: /\\Web\\Home\\home-page.scss/,
         use: [
           isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
@@ -45,7 +48,7 @@ module.exports = {
                   require('tailwindcss')({
                     mode: 'jit',
                     purge: {
-                      content: ['./Web/**/!(*Amp*|Index).html'],
+                      content: [...glob.sync('./Web/**/!(*Amp*|Index).html')]
                     },
                     darkMode: false,
                     theme: {
